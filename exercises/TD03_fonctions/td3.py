@@ -50,3 +50,20 @@ def afficheTemps(temps):
         print(temps[3], "secondes", end=" ")
 
 afficheTemps((1, 0, 14, 23))
+
+def demandeTemps():
+    temps = []
+    temps[0] = int(input("Veuillez saisir le nombre de jours."))
+    if temps[0] < 0 :
+        print("Erreur.")
+    temps[1] = int(input("Veuillez saisir le nombre d'heures."))
+    if temps[1] < 0 or temps[1] >= 24 :
+        print("Erreur.")
+    temps[2] = int(input("Veuillez saisir le nombre de minutes."))
+    if temps[2] < 0 or temps[2] >= 60 :
+        print("Erreur.")
+    temps[3] = int(input("Veuillez saisir le nombre de secondes."))
+    if temps[3] < 0 or temps[3] >= 60:
+        print("Erreur.")
+
+afficheTemps(demandeTemps())
