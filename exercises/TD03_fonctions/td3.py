@@ -26,3 +26,27 @@ def secondeEnTemps(seconde):
 
 temps = secondeEnTemps(100000)
 print(temps[0], "jours", temps[1], "heures", temps[2], "minutes", temps[3], "secondes")
+
+def afficheTemps(temps):
+
+    if temps[0] == 1 :
+        print("1 jour", end=" ")
+    elif temps[0] >= 2 :
+        print(temps[0], "jours", end=" ")
+
+    if temps[1] == 1 :
+        print("1 heure", end=" ")
+    elif temps[1] >= 2 :
+        print(temps[1], "heures", end=" ")
+
+    if temps[2] == 1 :
+        print("1 minute", end=" ")
+    elif temps[2] >= 2 :
+        print(temps[2], "minutes", end=" ")
+
+    if temps[3] == 1 :
+        print("1 seconde", end=" ")
+    elif temps[3] >= 2 :
+        print(temps[3], "secondes", end=" ")
+
+afficheTemps((1, 0, 14, 23))
