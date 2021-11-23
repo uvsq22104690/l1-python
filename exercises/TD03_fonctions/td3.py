@@ -190,3 +190,30 @@ def afficheDate(date = -1):
 temps = secondeEnTemps(1000000000)
 afficheTemps(temps)
 afficheDate(tempsEnDate(temps))
+
+def afficheDateMois(date = -1):
+    date_mois = [0, 0, 0, 0, 0, 0]
+    if date[1] >= 1 and date[1] <= 31 :
+        date_mois[1] = 1
+    if date[1] >= 32 and date[1] <= 59 :
+        date_mois[1] = 2
+    if date[1] >= 60 and date[1] <= 90 :
+        date_mois[1] = 3
+    if date[1] >= 91 and date[1] <= 120 :
+        date_mois[1] = 4
+    if date[1] >= 121 and date[1] <= 151 :
+        date_mois[1] = 5
+    if date[1] >= 152 and date[1] <= 181 :
+        date_mois[1] = 6
+    if date[1] >= 182 and date[1] <= 212 :
+        date_mois[1] = 7
+    if date[1] >= 213 and date[1] <= 243 :
+        date_mois[1] = 8
+    if date[1] >= 244 and date[1] <= 273 :
+        date_mois[1] = 9
+    if date[1] >= 274 and date[1] <= 304 :
+        date_mois[1] = 10
+    if date[1] >= 305 and date[1] <= 334 :
+        date_mois[1] = 11
+    if date[1] >= 335 and date[1] <= 365 :
+        date_mois[1] = 12
