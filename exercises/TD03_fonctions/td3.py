@@ -12,18 +12,22 @@ print(tempsEnSeconde(temps))
 def secondeEnTemps(seconde):
     """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
 
+    temps1 = [0, 0, 0, 0]
     if seconde >= 0 :
         if seconde >= 86400:
             jour = int(seconde / 86400)
+            temps1[0] = jour
             seconde = int(seconde % 86400)
         if seconde >= 3600:
             heure = int(seconde / 3600)
+            temps1[1] = heure
             seconde = int(seconde % 3600)
         if seconde >= 60:
             minute = int(seconde / 60)
+            temps1[2] = minute
             seconde = int(seconde % 60)
 
-    temps1 = [jour, heure, minute, seconde]
+    temps1[3] = seconde
     return temps1
 
 temps2 = secondeEnTemps(100000)
@@ -110,3 +114,33 @@ def demandeTempsBoucle():
     return temps6
 
 afficheTemps(demandeTempsBoucle())
+
+def sommeTemps(temps7,temps8):
+    temps9 = [0, 0, 0, 0]
+
+    temps9[3] = temps7[3] + temps8[3]
+    while temps9[3] >= 60:
+        temps9[2] += 1
+        temps9[3] = temps9[3] - 60
+
+    temps9[2] = temps9[2] + temps7[2] + temps8[2]
+    while temps9[2] >= 60:
+        temps9[1] += 1
+        temps9[2] = temps9[2] - 60
+
+    temps9[1] = temps9[1] + temps7[1] + temps8[1]
+    while temps9[1] >= 24:
+        temps9[0] += 1
+        temps9[1] = temps9[1] - 24
+
+    temps9[0] = temps9[0] + temps7[0] + temps8[0]
+
+    print(temps9)
+
+sommeTemps((2,3,4,25),(5,22,57,1))
+
+def proportionTemps(temps,proportion):
+    nouveau_temps = secondeEnTemps(tempsEnSeconde(temps)*proportion)
+    return nouveau_temps
+
+afficheTemps(proportionTemps((2,0,36,0),0.2))
