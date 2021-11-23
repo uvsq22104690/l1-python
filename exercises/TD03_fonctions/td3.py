@@ -5,9 +5,9 @@ def tempsEnSeconde(temps):
     seconde = temps[0] * 24 * 60 * 60 + temps[1] * 60 * 60 + temps[2] * 60 + temps[3]
     return seconde
 
-temps = (3,23,1,34)
+"""temps = (3,23,1,34)
 print(type(temps))
-print(tempsEnSeconde(temps))
+print(tempsEnSeconde(temps))"""
 
 def secondeEnTemps(seconde):
     """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
@@ -30,8 +30,8 @@ def secondeEnTemps(seconde):
     temps1[3] = seconde
     return temps1
 
-temps2 = secondeEnTemps(100000)
-print(temps2[0], "jours", temps2[1], "heures", temps2[2], "minutes", temps2[3], "secondes")
+"""temps2 = secondeEnTemps(100000)
+print(temps2[0], "jours", temps2[1], "heures", temps2[2], "minutes", temps2[3], "secondes")"""
 
 def afficheTemps(temps3):
 
@@ -55,8 +55,8 @@ def afficheTemps(temps3):
     elif temps3[3] >= 2 :
         print(temps3[3], "secondes", end=" ")
 
-temps4 = [1, 0, 14, 23]
-afficheTemps(temps4)
+"""temps4 = [1, 0, 14, 23]
+afficheTemps(temps4)"""
 
 def demandeTemps():
 
@@ -144,3 +144,49 @@ def proportionTemps(temps,proportion):
     return nouveau_temps
 
 afficheTemps(proportionTemps((2,0,36,0),0.2))
+
+def tempsEnDate(temps):
+    date = [0, 0, 0, 0, 0]
+    if temps[0] > 365 :
+        date[0] = int(temps[0]/365)
+        temps[0] = temps[0] - int(temps[0]/365) * 365
+
+    date[1] = temps[0]
+    date[2] = temps[1]
+    date[3] = temps[2]
+    date[4] = temps[3]
+    return date
+
+
+def afficheDate(date = -1):
+
+    print("")
+
+    if date[0] == 1:
+        print("1 année", end=" ")
+    elif date[0] >= 2:
+        print(date[0], "années", end=" ")
+
+    if date[1] == 1:
+        print("1 jour", end=" ")
+    elif date[1] >= 2:
+        print(date[1], "jours", end=" ")
+
+    if date[2] == 1:
+        print("1 heure", end=" ")
+    elif date[2] >= 2:
+        print(date[2], "heures", end=" ")
+
+    if date[3] == 1:
+        print("1 minute", end=" ")
+    elif date[3] >= 2:
+        print(date[3], "minutes", end=" ")
+
+    if date[4] == 1:
+        print("1 seconde", end=" ")
+    elif date[4] >= 2:
+        print(date[4], "secondes", end=" ")
+
+temps = secondeEnTemps(1000000000)
+afficheTemps(temps)
+afficheDate(tempsEnDate(temps))
