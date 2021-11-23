@@ -1,4 +1,5 @@
 import sys
+import time
 
 def tempsEnSeconde(temps):
     """ Renvoie la valeur en seconde de temps donné comme jour, heure, minute, seconde."""
@@ -34,6 +35,8 @@ def secondeEnTemps(seconde):
 print(temps2[0], "jours", temps2[1], "heures", temps2[2], "minutes", temps2[3], "secondes")"""
 
 def afficheTemps(temps3):
+
+    print("")
 
     if temps3[0] == 1 :
         print("1 jour", end=" ")
@@ -88,56 +91,38 @@ def demandeTempsBoucle():
     temps6 = [0, 0, 0, 0]
     temps6[0] = int(input("\nVeuillez saisir le nombre de jours : "))
 
-    if temps6[0] < 0 :
-        while temps6[0] < 0 :
-            print("Erreur.")
-            temps6[0] = int(input("Veuillez saisir le nombre de jours : "))
+    while temps6[0] < 0 :
+        print("Erreur.")
+        temps6[0] = int(input("Veuillez saisir le nombre de jours : "))
+
 
     temps6[1] = int(input("Veuillez saisir le nombre d'heures : "))
-    if temps6[1] < 0 or temps6[1] >= 24 :
-        while temps6[1] < 0 or temps6[1] >= 24 :
-            print("Erreur.")
-            temps6[1] = int(input("Veuillez saisir le nombre d'heures : "))
+    while temps6[1] < 0 or temps6[1] >= 24:
+        print("Erreur.")
+        temps6[1] = int(input("Veuillez saisir le nombre d'heures : "))
 
     temps6[2] = int(input("Veuillez saisir le nombre de minutes : "))
-    if temps6[2] < 0 or temps6[2] >= 60 :
-        while temps6[2] < 0 or temps6[2] >= 60 :
-            print("Erreur.")
-            temps6[2] = int(input("Veuillez saisir le nombre de minutes : "))
+    while temps6[2] < 0 or temps6[2] >= 60:
+        print("Erreur.")
+        temps6[2] = int(input("Veuillez saisir le nombre de minutes : "))
 
     temps6[3] = int(input("Veuillez saisir le nombre de secondes : "))
-    if temps6[3] < 0 or temps6[3] >= 60 :
-        while temps6[3] < 0 or temps6[3] >= 60 :
-            print("Erreur.")
-            temps6[3] = int(input("Veuillez saisir le nombre de secondes : "))
+    while temps6[3] < 0 or temps6[3] >= 60:
+        print("Erreur.")
+        temps6[3] = int(input("Veuillez saisir le nombre de secondes : "))
 
     return temps6
 
 afficheTemps(demandeTempsBoucle())
 
 def sommeTemps(temps7,temps8):
-    temps9 = [0, 0, 0, 0]
 
-    temps9[3] = temps7[3] + temps8[3]
-    while temps9[3] >= 60:
-        temps9[2] += 1
-        temps9[3] = temps9[3] - 60
+    temps7EnSec = tempsEnSeconde(temps7)
+    temps8EnSec = tempsEnSeconde(temps8)
+    sommeEnSec = temps7EnSec + temps8EnSec
+    return secondeEnTemps(sommeEnSec)
 
-    temps9[2] = temps9[2] + temps7[2] + temps8[2]
-    while temps9[2] >= 60:
-        temps9[1] += 1
-        temps9[2] = temps9[2] - 60
-
-    temps9[1] = temps9[1] + temps7[1] + temps8[1]
-    while temps9[1] >= 24:
-        temps9[0] += 1
-        temps9[1] = temps9[1] - 24
-
-    temps9[0] = temps9[0] + temps7[0] + temps8[0]
-
-    print(temps9)
-
-sommeTemps((2,3,4,25),(5,22,57,1))
+afficheTemps(sommeTemps((2,3,4,25),(5,22,57,1)))
 
 def proportionTemps(temps,proportion):
     nouveau_temps = secondeEnTemps(tempsEnSeconde(temps)*proportion)
@@ -156,7 +141,6 @@ def tempsEnDate(temps):
     date[3] = temps[2]
     date[4] = temps[3]
     return date
-
 
 def afficheDate(date = -1):
 
@@ -194,26 +178,50 @@ afficheDate(tempsEnDate(temps))
 def afficheDateMois(date = -1):
     date_mois = [0, 0, 0, 0, 0, 0]
     if date[1] >= 1 and date[1] <= 31 :
-        date_mois[1] = 1
+        date_mois[1] = "Janvier"
     if date[1] >= 32 and date[1] <= 59 :
-        date_mois[1] = 2
+        date_mois[1] = "Février"
+        date[1] = date[1] - 31
     if date[1] >= 60 and date[1] <= 90 :
-        date_mois[1] = 3
+        date_mois[1] = "Mars"
+        date[1] = date[1] - 59
     if date[1] >= 91 and date[1] <= 120 :
-        date_mois[1] = 4
+        date_mois[1] = "Avril"
+        date[1] = date[1] - 90
     if date[1] >= 121 and date[1] <= 151 :
-        date_mois[1] = 5
+        date_mois[1] = "Mai"
+        date[1] = date[1] - 120
     if date[1] >= 152 and date[1] <= 181 :
-        date_mois[1] = 6
+        date_mois[1] = "Juin"
+        date[1] = date[1] - 151
     if date[1] >= 182 and date[1] <= 212 :
-        date_mois[1] = 7
+        date_mois[1] = "Juillet"
+        date[1] = date[1] - 151
     if date[1] >= 213 and date[1] <= 243 :
-        date_mois[1] = 8
+        date_mois[1] = "Août"
+        date[1] = date[1] - 212
     if date[1] >= 244 and date[1] <= 273 :
-        date_mois[1] = 9
+        date_mois[1] = "Septembre"
+        date[1] = date[1] - 243
     if date[1] >= 274 and date[1] <= 304 :
-        date_mois[1] = 10
+        date_mois[1] = "Octobre"
+        date[1] = date[1] - 273
     if date[1] >= 305 and date[1] <= 334 :
-        date_mois[1] = 11
+        date_mois[1] = "Novembre"
+        date[1] = date[1] - 304
     if date[1] >= 335 and date[1] <= 365 :
-        date_mois[1] = 12
+        date_mois[1] = "Décembre"
+        date[1] = date[1] - 334
+
+    date_mois[0] = date[0]
+    date_mois[2] = date[1]
+    date_mois[3] = date[2]
+    date_mois[4] = date[3]
+    date_mois[5] = date[4]
+
+    print("")
+    print(date_mois[2], date_mois[1], date_mois[0] + 1970, "à " + str(date_mois[3]) + ":" + str(date_mois[4]) + ":" + str(date_mois[5]))
+
+afficheDateMois(tempsEnDate(temps))
+
+time
