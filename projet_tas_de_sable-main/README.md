@@ -2,7 +2,7 @@
 MI200N - Projet : Tas de sable
 #########################################
 # groupe MI 4
-# Vincent BEAUVALLET 
+# Vincent
 # Marjorie
 # Levi
 # Kévin
