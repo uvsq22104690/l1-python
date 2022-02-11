@@ -2,7 +2,7 @@
 MI200N - Projet : Tas de sable
 #########################################
 # groupe MPCI 3
-# Vincent
+# Vincent BEAUVALLET
 # Marjorie
 # Levi
 # Kévin
