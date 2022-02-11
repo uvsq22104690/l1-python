@@ -1,7 +1,7 @@
 # projet_tas_de_sable
 MI200N - Projet : Tas de sable
 #########################################
-# groupe MPCI 3
+# groupe MI 4
 # Vincent BEAUVALLET
 # Marjorie
 # Levi
